@@ -36,4 +36,19 @@ class TaxesTest : BehaviorSpec ({
             }
         }
     }
+
+    context("Je veux appliquer la TVA à ma commande en France") {
+        given("Une commande avec une boutique française") {
+            val commande = TicketDeCaisse(ULID().nextULID(), Boutique(PaysValides.FRA), 20.0)
+
+            When("Je demande le prix après TVA") {
+                val tva = commande.appliquerTVA()
+
+                Then("Je devrai payer 24.0€") {
+                    tva shouldBe 24.0
+                }
+
+            }
+        }
+    }
 })

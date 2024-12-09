@@ -28,7 +28,7 @@ class TicketDeCaisse(val Id: String = ULID().nextULID(), val boutique: Boutique,
     }
 
     fun appliquerTVA(): Double {
-        return TotalHT * (1 + getTax())
+        return TotalHT * (1 + getTax()/100)
     }
 
     override fun toString(): String {
