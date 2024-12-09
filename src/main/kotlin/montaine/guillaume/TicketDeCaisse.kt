@@ -1,6 +1,7 @@
 package montaine.guillaume
 
 import de.huxhorn.sulky.ulid.ULID
+import kotlin.math.round
 
 class TicketDeCaisse(val Id: String = ULID().nextULID(), val boutique: Boutique, val TotalHT: Double) {
 
@@ -20,7 +21,7 @@ class TicketDeCaisse(val Id: String = ULID().nextULID(), val boutique: Boutique,
     }
 
     fun getTotalTTC(): Double {
-        return TotalHT * getRemise() * getTax()
+        return round((TotalHT * (1-getRemise()) * (1+getTax()/100))*100)/100
     }
 
     fun appliquerRemise(): Double {
@@ -33,7 +34,6 @@ class TicketDeCaisse(val Id: String = ULID().nextULID(), val boutique: Boutique,
 
     override fun toString(): String {
         return """
-        Ticket de Caisse (ID: $Id)
         Boutique: ${boutique.nom}
         Total HT: $TotalHT€
         TVA (${boutique.Pays}): ${getTax()}%

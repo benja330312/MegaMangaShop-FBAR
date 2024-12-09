@@ -3,9 +3,9 @@ package montaine.guillaume
 import org.example.montaine.guillaume.montaine.guillaume.Article
 import org.example.montaine.guillaume.montaine.guillaume.PaysValides
 
-class Boutique(val Pays: PaysValides) {
+class Boutique(val Pays: PaysValides, val nom: String) {
 
-    public val nom: String = "MegaMangaShop"
+    private val _nom = nom
     private val articles = mutableListOf<Article>()
 
     fun ajouterArticle(article: Article){
@@ -23,5 +23,9 @@ class Boutique(val Pays: PaysValides) {
     fun creerTicket(): TicketDeCaisse {
         return TicketDeCaisse(boutique = this, TotalHT = getTotalHTCommande())
     }
+//
+//    fun getNom(): String {
+//        return _nom
+//    }
 }
 
