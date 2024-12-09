@@ -4,6 +4,15 @@ import de.huxhorn.sulky.ulid.ULID
 
 class TicketDeCaisse(val Id: String = ULID().nextULID(), val boutique: Boutique, val TotalHT: Double) {
 
+    init {
+        if (TotalHT.equals(0)) {
+            throw IllegalArgumentException("Le montant HT ne peut pas être nul ou inférieur ou égal à zéro.")
+        }
+        if (TotalHT < 0){
+            throw IllegalArgumentException("Le montant HT est nul !")
+        }
+    }
+
     fun getTax(): Double {
         return boutique.Pays.getTVA()
     }
