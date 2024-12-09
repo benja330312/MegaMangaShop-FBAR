@@ -22,4 +22,16 @@ class TicketDeCaisse(val Id: String = ULID().nextULID(), val boutique: Boutique,
     fun getTotalTTC(): Double {
         return TotalHT * getRemise() * getTax()
     }
+
+    override fun toString(): String {
+        return """
+        Ticket de Caisse (ID: $Id)
+        Boutique: ${boutique.nom}
+        Total HT: $TotalHT€
+        TVA (${boutique.Pays}): ${getTax()}%
+        Remise: ${getRemise() * 100}%
+        Total TTC: ${getTotalTTC()}€
+    """.trimIndent()
+    }
+
 }

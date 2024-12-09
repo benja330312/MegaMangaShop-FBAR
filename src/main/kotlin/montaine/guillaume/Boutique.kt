@@ -5,6 +5,7 @@ import org.example.montaine.guillaume.montaine.guillaume.PaysValides
 
 class Boutique(val Pays: PaysValides) {
 
+    public val nom: String = "MegaMangaShop"
     private val articles = mutableListOf<Article>()
 
     fun ajouterArticle(article: Article){
