@@ -21,11 +21,7 @@ class Boutique(val Pays: PaysValides, val nom: String) {
     }
 
     fun creerTicket(): TicketDeCaisse {
-        return TicketDeCaisse(boutique = this, TotalHT = getTotalHTCommande())
+        return TicketDeCaisse(boutique = this, totalHT = getTotalHTCommande())
     }
-//
-//    fun getNom(): String {
-//        return _nom
-//    }
 }
 
