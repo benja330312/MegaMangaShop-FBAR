@@ -23,6 +23,14 @@ class TicketDeCaisse(val Id: String = ULID().nextULID(), val boutique: Boutique,
         return TotalHT * getRemise() * getTax()
     }
 
+    fun appliquerRemise(): Double {
+        return TotalHT * (1 - getRemise())
+    }
+
+    fun appliquerTVA(): Double {
+        return TotalHT * (1 + getTax())
+    }
+
     override fun toString(): String {
         return """
         Ticket de Caisse (ID: $Id)
