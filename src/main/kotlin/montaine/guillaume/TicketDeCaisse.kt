@@ -33,12 +33,19 @@ class TicketDeCaisse(val Id: String = ULID().nextULID(), val boutique: Boutique,
     }
 
     override fun toString(): String {
+        // Arrondir les valeurs
+        val totalHTArrondi = String.format("%.2f", TotalHT)
+        val tvaArrondi = String.format("%.2f", getTax())
+        val remiseArrondie = String.format("%.2f", getRemise() * 100)
+        val totalTTC = getTotalTTC()
+        val totalTTCarrondi = String.format("%.2f", totalTTC)
+
         return """
-        Boutique: ${boutique.nom}
-        Total HT: $TotalHT€
-        TVA (${boutique.Pays}): ${getTax()}%
-        Remise: ${getRemise() * 100}%
-        Total TTC: ${getTotalTTC()}€
+        ##### ${boutique.nom} #####
+        Total HT: $totalHTArrondi€
+        TVA (${boutique.Pays}): $tvaArrondi%
+        Remise: $remiseArrondie%
+        Total TTC: $totalTTCarrondi€
     """.trimIndent()
     }
 
