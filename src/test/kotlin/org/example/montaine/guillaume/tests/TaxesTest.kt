@@ -11,7 +11,7 @@ class TaxesTest : BehaviorSpec ({
     context("Je veux vérifier qu'étant donné une commande en France, j'ai une TVA de 20%") {
 
         given("Une commande avec une boutique française") {
-            val commande = TicketDeCaisse(ULID().nextULID(), Boutique(PaysValides.FRA), 100.0)
+            val commande = TicketDeCaisse(ULID().nextULID(), Boutique(PaysValides.FRA, "Manga Store"), 100.0)
 
             When("Je demande la TVA associée") {
                val tva = commande.getTax()
@@ -24,7 +24,7 @@ class TaxesTest : BehaviorSpec ({
     }
     context("Je veux vérifier qu'étant donné une commande en Allemagne, j'ai une TVA de 15,6%") {
         given("Une commande avec une boutique allemande") {
-            val commande = TicketDeCaisse(ULID().nextULID(), Boutique(PaysValides.ALL), 20.0)
+            val commande = TicketDeCaisse(ULID().nextULID(), Boutique(PaysValides.ALL, "Manga Store"), 20.0)
 
             When("Je demande la TVA associée") {
                 val tva = commande.getTax()
@@ -39,7 +39,7 @@ class TaxesTest : BehaviorSpec ({
 
     context("Je veux appliquer la TVA à ma commande en France") {
         given("Une commande avec une boutique française") {
-            val commande = TicketDeCaisse(ULID().nextULID(), Boutique(PaysValides.FRA), 20.0)
+            val commande = TicketDeCaisse(ULID().nextULID(), Boutique(PaysValides.FRA, "Boutique Manga FR"), 20.0)
 
             When("Je demande le prix après TVA") {
                 val tva = commande.appliquerTVA()
