@@ -16,11 +16,11 @@ class RecapitulatifCommandeTest : BehaviorSpec ({
                 val recap = commande.toString()
 
                 Then("J'ai un récapitulatif de la commande")
-                    recap shouldBe "Boutique: Manga Store\n" +
-                            "Total HT: 250.0€\n" +
-                            "TVA (FRA): 20.0%\n" +
-                            "Remise: 3.0%\n" +
-                            "Total TTC: 291.0€"
+                    recap shouldBe "##### Manga Store #####\n" +
+                            "Total HT: 250.00€\n" +
+                            "TVA (FRA): 20.00%\n" +
+                            "Remise: 3.00%\n" +
+                            "Total TTC: 291.00€"
             }
         }
     }

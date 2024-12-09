@@ -12,9 +12,9 @@ class RemiseTest : BehaviorSpec({
     context("Vérification des remises automatiques sur le montant total HT de la commande") {
         
         given("Une commande de 180€") {
-            val boutique = Boutique(PaysValides.FRA)
+            val boutique = Boutique(PaysValides.FRA, "Manga Store")
             val montantInitial = 180.0
-            val ticket = TicketDeCaisse(boutique = boutique, TotalHT = montantInitial)
+            val ticket = TicketDeCaisse(boutique = boutique, totalHT = montantInitial)
 
             `when`("Je calcule la remise applicable") {
                 val tauxRemise = ticket.getRemise()
@@ -27,9 +27,9 @@ class RemiseTest : BehaviorSpec({
         }
 
         given("Une commande de 280€") {
-            val boutique = Boutique(PaysValides.FRA)
+            val boutique = Boutique(PaysValides.FRA, "Manga Store")
             val montantInitial = 280.0
-            val ticket = TicketDeCaisse(boutique = boutique, TotalHT = montantInitial)
+            val ticket = TicketDeCaisse(boutique = boutique, totalHT = montantInitial)
 
             `when`("Je calcule la remise applicable") {
                 val tauxRemise = ticket.getRemise()
@@ -42,9 +42,9 @@ class RemiseTest : BehaviorSpec({
         }
 
         given("Une commande de 380€") {
-            val boutique = Boutique(PaysValides.FRA)
+            val boutique = Boutique(PaysValides.FRA, "Manga Store")
             val montantInitial = 380.0
-            val ticket = TicketDeCaisse(boutique = boutique, TotalHT = montantInitial)
+            val ticket = TicketDeCaisse(boutique = boutique, totalHT = montantInitial)
 
             `when`("Je calcule la remise applicable") {
                 val tauxRemise = ticket.getRemise()
@@ -57,9 +57,9 @@ class RemiseTest : BehaviorSpec({
         }
 
         given("Une commande de 980€") {
-            val boutique = Boutique(PaysValides.FRA)
+            val boutique = Boutique(PaysValides.FRA, "Manga Store")
             val montantInitial = 980.0
-            val ticket = TicketDeCaisse(boutique = boutique, TotalHT = montantInitial)
+            val ticket = TicketDeCaisse(boutique = boutique, totalHT = montantInitial)
 
             `when`("Je calcule la remise applicable") {
                 val tauxRemise = ticket.getRemise()
@@ -72,9 +72,9 @@ class RemiseTest : BehaviorSpec({
         }
 
         given("Une commande de 1500€") {
-            val boutique = Boutique(PaysValides.FRA)
+            val boutique = Boutique(PaysValides.FRA, "Manga Store")
             val montantInitial = 1500.0
-            val ticket = TicketDeCaisse(boutique = boutique, TotalHT = montantInitial)
+            val ticket = TicketDeCaisse(boutique = boutique, totalHT = montantInitial)
 
             `when`("Je calcule la remise applicable") {
                 val tauxRemise = ticket.getRemise()
@@ -87,9 +87,9 @@ class RemiseTest : BehaviorSpec({
         }
 
         given("Une commande de 100€") {
-            val boutique = Boutique(PaysValides.FRA)
+            val boutique = Boutique(PaysValides.FRA, "Manga Store")
             val montantInitial = 100.0
-            val ticket = TicketDeCaisse(boutique = boutique, TotalHT = montantInitial)
+            val ticket = TicketDeCaisse(boutique = boutique, totalHT = montantInitial)
 
             `when`("Je calcule la remise applicable") {
                 val tauxRemise = ticket.getRemise()

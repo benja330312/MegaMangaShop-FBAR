@@ -42,7 +42,7 @@ class TaxesTest : BehaviorSpec ({
             val commande = TicketDeCaisse(ULID().nextULID(), Boutique(PaysValides.FRA, "Boutique Manga FR"), 20.0)
 
             When("Je demande le prix après TVA") {
-                val tva = commande.appliquerTVA()
+                val tva = commande.appliquerTVA(20.0)
 
                 Then("Je devrai payer 24.0€") {
                     tva shouldBe 24.0
