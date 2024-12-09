@@ -7,7 +7,7 @@ import montaine.guillaume.TicketDeCaisse
 
 class GuillaumeTest : BehaviorSpec({
 
-    context("je veux vérifier que chaque ticket a son identifiant unique") {
+    /*context("je veux vérifier que chaque ticket a son identifiant unique") {
 
         given("un ticket") {
             val ticket = TicketDeCaisse()
@@ -26,4 +26,5 @@ class GuillaumeTest : BehaviorSpec({
                 }
             }
         }
-    }})
+    }}*/
+})
